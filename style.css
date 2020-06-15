@@ -1,0 +1,26 @@
+/**
+ * DokuWiki Plugin copycode (Action Component)
+ *
+ * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
+ * @author  Nicolas Prigent <mail.nicolasprigent@gmail.com>
+ * 
+ * Styling of alert box 
+ */
+ #dokuwiki__content pre{
+     cursor:cell;
+ }
+
+ .alert.alert-success.alert-copycode {
+    position: fixed;
+    top: 65px;
+    z-index: 9999999;
+    right: 4px;
+    background: rgb(25, 219, 113);
+    color: #ffffff;
+    box-shadow: 0 0 0.5em #999;
+    padding:15px;
+}
+
+.alert.alert-success.alert-copycode button.close{
+    display:none;
+}
