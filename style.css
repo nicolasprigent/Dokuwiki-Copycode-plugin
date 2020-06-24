@@ -24,3 +24,7 @@
 .alert.alert-success.alert-copycode button.close{
     display:none;
 }
+
+.copycode_line{
+    display: none;
+}

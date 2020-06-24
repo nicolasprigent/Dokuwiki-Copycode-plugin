@@ -12,7 +12,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-
+ 
     var bloc_code = jQuery("pre.code");
 
     for(i=0;i<bloc_code.length;i++){
@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
             copyToClipboard(this)
 
         });
+
+        line = jQuery("pre.code > ol > li").append('<span class="copycode_line">_copycode_</span>');
+
 
     }
 
@@ -84,7 +87,10 @@ function copyToClipboard(elem) {
 
         }
 
-        target.textContent = elem.textContent;
+        textToPaste = elem.textContent;
+        textToPaste = textToPaste.split("_copycode_").join("\n");
+        console.log(textToPaste);
+        target.textContent = textToPaste;
 
     }
 
