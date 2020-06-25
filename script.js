@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
     for(i=0;i<bloc_code.length;i++){
 
         bloc_code[i].addEventListener('click', function(){
-
+            event.preventDefault();
             copyToClipboard(this)
 
         });
 
-        line = jQuery("pre.code > ol > li").append('<span class="copycode_line">_copycode_</span>');
+        line = jQuery("pre.code > ol > li").append('<span class="copycode_line">_||copycode||_</span>');
 
 
     }
@@ -34,8 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
 function copyToClipboard(elem) {
 
     //Alert
+    
     var alertMsg = '<div class="alert alert-success alert-copycode" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>' + LANG.plugins.copycode['copied'] + '</strong></div>';
-    jQuery( ".page" ).prepend( alertMsg );
+    jQuery( "body" ).append( alertMsg );
 
     window.setTimeout(function() {
 
@@ -80,7 +81,6 @@ function copyToClipboard(elem) {
             target.style.left = "-9999px";
 
             target.style.top = "0";
-
             target.id = targetId;
 
             document.body.appendChild(target);
@@ -88,21 +88,18 @@ function copyToClipboard(elem) {
         }
 
         textToPaste = elem.textContent;
-        textToPaste = textToPaste.split("_copycode_").join("\n");
-        console.log(textToPaste);
+        textToPaste = textToPaste.split("_||copycode||_").join("\n");
         target.textContent = textToPaste;
 
     }
 
     // select the content
 
-    var currentFocus = document.activeElement;
+    var currentScroll = jQuery(window).scrollTop();
 
     target.focus();
 
     target.setSelectionRange(0, target.value.length);
-
-    
 
     // copy the selection
 
@@ -118,15 +115,7 @@ function copyToClipboard(elem) {
 
     }
 
-    // restore original focus
-
-    if (currentFocus && typeof currentFocus.focus === "function") {
-
-        currentFocus.focus();
-
-    }
-
-    
+    jQuery(window).scrollTop(currentScroll);
 
     if (isInput) {
 
