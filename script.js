@@ -22,10 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
             copyToClipboard(this)
 
         });
-
-        line = jQuery("pre.code > ol > li").append('<span class="copycode_line">_||copycode||_</span>');
-
-
+        
+        line = jQuery(bloc_code[i]).find("ol > li").append('<span class="copycode_line">_||copycode||_</span>');
     }
 
 });
