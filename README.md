@@ -4,6 +4,8 @@ Simple plugin for dokuwiki that adds a copy functionnality when clicking on a co
 
 ## Change Log
 
+### 2020-08-30
+- Fix <file> tag with no filename that did not work when copying (https://github.com/nicolasprigent/Dokuwiki-Copycode-plugin/issues/4)
 ### 2020-07-01
 - Fix multi linebreaks when there is more than one code block
 ### 2020-06-25
