@@ -4,6 +4,8 @@ Simple plugin for dokuwiki that adds a copy functionnality when clicking on a co
 
 ## Change Log
 
+### 2020-09-08
+Refactoring of copycode functions with navigator.clipboard function instead of hidden input hack. Fixing the jump to top bug on android systems. See https://developer.mozilla.org/fr/docs/Web/API/Clipboard for compatible web browsers (everything but Internet Explorer).
 ### 2020-08-30
 - Fix \<file\> tag with no filename did not work when trying to copy the code block (https://github.com/nicolasprigent/Dokuwiki-Copycode-plugin/issues/4)
 ### 2020-07-01
