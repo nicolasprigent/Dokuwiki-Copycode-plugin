@@ -1,12 +1,22 @@
 /**
+
  * DokuWiki Plugin copycode (Action Component)
+
  *
+
  * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
+
  * @author  Nicolas Prigent <mail.nicolasprigent@gmail.com>
+
  * 
+
  * Adds a click event on all code blocks that copy the content of the block to clipboard
+
  * 
+
  */
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -15,9 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
     for(i=0;i<bloc_code.length;i++){
 
         bloc_code[i].addEventListener('click', function(){
-
-            writeToClipboard(this)
-
+            selected_text = window.getSelection().toString();
+            if (selected_text != "") {
+                writeToClipboard(selected_text);
+            }else{
+                writeToClipboard(this);
+            }
         });
 
         line = jQuery(bloc_code[i]).find("ol > li").append('<span class="copycode_line">_||copycode||_</span>');
@@ -26,29 +39,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
 function writeToClipboard(elem) {
-    var inputValue = elem.textContent;
-    if (inputValue) {
-        inputValue = inputValue.split("_||copycode||_").join("\n");
+    inputValue = '';
+    if (typeof elem == 'string'){
+        inputValue = elem;
+        alertText = 'selectioncopied';
+        alertClass = 'orange';
+    }else{
+        inputValue = elem.textContent;
+        if (inputValue) {
+            inputValue = inputValue.split("_||copycode||_").join("\n");
+            alertText = 'copied';
+            alertClass = 'green';
+        }
+    }
+    if (inputValue != '') {
         navigator.clipboard.writeText(inputValue)
         .then(() => {
-            //Alert
-
-            
-
-            var alertMsg = '<div class="alert alert-success alert-copycode" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>' + LANG.plugins.copycode['copied'] + '</strong></div>';
-
-            jQuery( "body" ).append( alertMsg );
-
-            window.setTimeout(function() {
-                jQuery(".alert").fadeTo(500, 0).slideUp(500, function(){
-                    jQuery(this).remove(); 
-                });
-            }, 1000);
-
+            alertMessage(LANG.plugins.copycode[alertText], alertClass);
         })
         .catch(err => {
             console.log(LANG.plugins.copycode['error'], err);
         })
-    }
+    } 
+};
+
+
+function alertMessage(message, alertclass){
+    var alertMsg = '<div class="' + alertclass + ' alert-copycode">' + message + '</div>';
+
+    jQuery( "body" ).append( alertMsg );
+
+    window.setTimeout(function() {
+        jQuery(".alert-copycode").fadeTo(500, 0).slideUp(500, function(){
+            jQuery(this).remove(); 
+        });
+    }, 1000);
 };
