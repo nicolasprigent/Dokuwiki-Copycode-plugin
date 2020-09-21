@@ -6,4 +6,5 @@
  */
 
 $lang['js']['copied'] = 'Code has been copied!';
+$lang['js']['selectioncopied'] = 'Selected code has been copied!';
 $lang['js']['error'] = 'Something went wrong when copying code.';
