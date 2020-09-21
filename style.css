@@ -6,22 +6,34 @@
  * 
  * Styling of alert box 
  */
+
  #dokuwiki__content pre{
      cursor:cell;
  }
 
- .alert.alert-success.alert-copycode {
+.alert-copycode {
     position: fixed;
-    top: 65px;
+    display: block;
+    top: 70px;
     z-index: 9999999;
-    right: 4px;
-    background: rgb(25, 219, 113);
+    font-size: 12px;
+    font-weight: bold;
+    right: 10px;
     color: #ffffff;
-    box-shadow: 0 0 0.5em #999;
-    padding:15px;
+    box-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,.3);
+    padding: 15px;
+    border-radius: 5px;
 }
 
-.alert.alert-success.alert-copycode button.close{
+.green.alert-copycode {
+    background: rgb(25, 219, 113);
+}
+
+.orange.alert-copycode {
+    background: #ff5731;
+}
+
+.alert.alert-copycode button.close{
     display:none;
 }
 
