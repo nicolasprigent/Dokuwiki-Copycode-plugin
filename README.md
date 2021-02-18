@@ -7,6 +7,7 @@ https://www.dokuwiki.org/plugin:copycode
 
 ### 2021-02-18
 - If for any reason, navigator.clipboard fails, it uses the hidden textarea hack instead
+- Added dutch language file
 
 ### 2020-09-21
 - Added code selection copy, with its own alert box
