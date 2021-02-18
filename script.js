@@ -55,13 +55,17 @@ function writeToClipboard(elem) {
         }
     }
     if (inputValue != '') {
-        navigator.clipboard.writeText(inputValue)
-        .then(() => {
-            alertMessage(LANG.plugins.copycode[alertText], alertClass);
-        })
-        .catch(err => {
-            console.log(LANG.plugins.copycode['error'], err);
-        })
+        if (navigator.clipboard != undefined) {
+            navigator.clipboard.writeText(inputValue);
+        } else {
+            /*if for any reason the clipboard is unavalaible, uses the fake textarea hack to copy the content*/
+            var $textarea = jQuery('<textarea />');
+            $textarea.val(inputValue).css({ width: "1px", height: "1px" }).appendTo('body');
+            $textarea.select();
+            document.execCommand('copy');
+            $textarea.remove();
+        }
+        alertMessage(LANG.plugins.copycode[alertText], alertClass);
     } 
 };
 
