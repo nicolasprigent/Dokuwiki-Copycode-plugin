@@ -20,7 +20,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var bloc_code = jQuery("pre.code, pre.file");
+    var bloc_code = jQuery("pre.code, pre.file, code");
 
     for(i=0;i<bloc_code.length;i++){
 
