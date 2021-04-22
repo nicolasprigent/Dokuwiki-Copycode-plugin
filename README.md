@@ -4,6 +4,8 @@ Simple plugin for dokuwiki that adds a copy functionnality when clicking on a co
 https://www.dokuwiki.org/plugin:copycode
 
 ## Change Log
+### 2021-04-21
+- Added "code" html selector in jquery
 
 ### 2021-02-18
 - If for any reason, navigator.clipboard fails, it uses the hidden textarea hack instead

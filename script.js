@@ -20,7 +20,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var bloc_code = jQuery("pre.code, pre.file");
+    var bloc_code = jQuery("#dokuwiki__content pre.code, #dokuwiki__content pre.file");
 	
 	if (JSINFO.plugins.copycode.EnableForInline)
 		bloc_code = bloc_code.add("#dokuwiki__content code");

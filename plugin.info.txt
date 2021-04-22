@@ -1,7 +1,7 @@
 base   copycode
 author Nicolas Prigent
 email  mail.nicolasprigent@gmail.com
-date   2021-02-18
+date   2021-04-21
 name   Copycode
 desc   Copy code block to clipboard. Just click on the code block !
 url    https://github.com/nicolasprigent/Dokuwiki-Copycode-plugin
