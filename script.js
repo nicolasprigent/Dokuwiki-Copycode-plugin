@@ -21,7 +21,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     var bloc_code = jQuery("pre.code, pre.file");
+	
+	if (JSINFO.plugins.copycode.EnableForInline)
+		bloc_code = bloc_code.add("#dokuwiki__content code");
 
+	bloc_code.addClass("enabled-copycode");
+	
     for(i=0;i<bloc_code.length;i++){
 
         bloc_code[i].addEventListener('click', function(){

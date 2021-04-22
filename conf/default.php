@@ -7,3 +7,4 @@
 
 //$conf['fixme']    = 'FIXME';
 
+$conf['enable_for_inline'] = 1;
