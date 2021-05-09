@@ -8,3 +8,4 @@
 
 //$meta['fixme'] = array('string');
 
+$meta['enable_for_inline'] = array('onoff');

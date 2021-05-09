@@ -7,9 +7,8 @@
  * Styling of alert box 
  */
 
-#dokuwiki__content pre,
-#dokuwiki__content code {
-     cursor:cell;
+ .enabled-copycode {
+	 cursor:cell;
  }
 
 .alert-copycode {

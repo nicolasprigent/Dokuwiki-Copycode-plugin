@@ -11,7 +11,7 @@ if (!defined('DOKU_INC')) {
     die();
 }
 
-class action_plugin_copycode extends DokuWiki_Action_Plugin
+class action_plugin_copycode_copycode extends DokuWiki_Action_Plugin
 {
 
     /**
@@ -23,6 +23,7 @@ class action_plugin_copycode extends DokuWiki_Action_Plugin
      */
     public function register(Doku_Event_Handler $controller)
     {
+        $controller->register_hook('DOKUWIKI_STARTED', 'AFTER', $this, 'pass_settings_js');   
         $controller->register_hook('TPL_METAHEADER_OUTPUT', 'BEFORE', $this,'hook_copycode_js');   
     }
 
@@ -39,12 +40,36 @@ class action_plugin_copycode extends DokuWiki_Action_Plugin
      */
     public function hook_copycode_js(Doku_Event $event, $param)
     {
-        $event->data['script'][] = array(
-            'type'    => 'text/javascript',
-            'charset' => 'utf-8',
-            '_data'   => '',
-            'src'     => DOKU_PLUGIN.'copycode/script.js');
+		// this code does not need execution (anymore?), as 'script.js' is automatically merged into global js.php.
+        // $event->data['script'][] = array(
+            // 'type'    => 'text/javascript',
+            // 'charset' => 'utf-8',
+            // '_data'   => '',
+            // 'src'     => DOKU_PLUGIN.'copycode/script.js');
     }
+
+    /**
+     * Event handler to pass settings to JavaScript via $JSINFO
+     *
+     * Called for event:
+     *
+     * @param Doku_Event $event  event object by reference
+     * @param mixed      $param  [the parameters passed as fifth argument to register_hook() when this
+     *                           handler was registered]
+     *
+     * @return void
+     */
+    public function pass_settings_js(Doku_Event $event, $param)
+    {
+		
+		global $JSINFO;
+		if (empty($JSINFO['plugins'])) {
+			$JSINFO['plugins'] = [];
+		}
+		$JSINFO['plugins']['copycode'] = [
+			'EnableForInline' => $this->getConf('enable_for_inline', 0)
+		];
+	}
 
 }
 
