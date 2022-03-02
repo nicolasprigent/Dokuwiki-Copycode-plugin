@@ -4,6 +4,13 @@ Simple plugin for dokuwiki that adds a copy functionnality when clicking on a co
 https://www.dokuwiki.org/plugin:copycode
 
 ## Change Log
+### 2022-03-02
+- Adds functionnality to remove extra non ascii character bug
+- Adds functionnality and code logic for new mouse actions
+- Adds inline copy on right click
+- Removing default contextmenu on right click on a code block
+- Better writing of jquery elements (using $ instead of repetitive jQuery function calls)
+
 ### 2021-05-09
 - Merged Pull Request from FootStark : "Add inline code-copying with option"
 
