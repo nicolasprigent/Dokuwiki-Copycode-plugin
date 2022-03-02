@@ -7,5 +7,6 @@
  */
 
 $lang['js']['copied'] = 'Code wurde kopiert!';
+$lang['js']['copiedinline'] = 'Der Code wurde in eine Zeile kopiert.';
 $lang['js']['selectioncopied'] = 'Ausgewählter Code wurde kopiert!';
 $lang['js']['error'] = 'Beim Kopieren des Codes ist etwas schief gelaufen.';
