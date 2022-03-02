@@ -33,6 +33,10 @@
     background: #ff5731;
 }
 
+.blue.alert-copycode {
+  background: #0086d3;
+}
+
 .alert.alert-copycode button.close{
     display:none;
 }
