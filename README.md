@@ -5,7 +5,7 @@ https://www.dokuwiki.org/plugin:copycode
 
 ## Change Log
 ### 2022-09-12
-- Commented an alert on unused mouse key clic (like previous or next buttons)
+- Fix : commented an alert on unused mouse key clic (like previous or next buttons)
 
 ### 2022-03-02
 - Adds functionnality to remove extra non ascii character bug
