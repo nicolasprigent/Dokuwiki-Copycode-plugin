@@ -104,14 +104,14 @@ jQuery(document).ready(function ($) {
           }
           break;
         case 2:
-          //alert("Middle Mouse button");
+          //console.log("Middle Mouse button");
           break;
         case 3:
-          //alert("Middle Mouse button");
+          //console.log("Middle Mouse button");
           writeToClipboard(this, 3);
           break;
         default:
-          alert("Nothing");
+          //console.log("Nothing");
       }
     });
 
