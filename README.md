@@ -4,6 +4,9 @@ Simple plugin for dokuwiki that adds a copy functionnality when clicking on a co
 https://www.dokuwiki.org/plugin:copycode
 
 ## Change Log
+### 2023-05-28
+- Fix : copycode plugin now work under the .dokuwiki class instead of the mainpage id.
+
 ### 2022-09-12
 - Fix : commented an alert on unused mouse key clic (like previous or next buttons)
 
