@@ -79,11 +79,11 @@ jQuery(document).ready(function ($) {
         });
     }, 1000);
   }
-
-  var bloc_code = $("#dokuwiki__content pre.code, #dokuwiki__content pre.file");
-
+  //enabled <code> and <file> blocks on all wiki pages and hooks(sidebar,header,mainpage,dropdownpages etc.)
+  var bloc_code = $(".dokuwiki pre.code, .dokuwiki pre.file");
+  //enabled inlinecodes ''like this''
   if (JSINFO.plugins.copycode.EnableForInline)
-    bloc_code = bloc_code.add("#dokuwiki__content code");
+    bloc_code = bloc_code.add(".dokuwiki code");
 
   bloc_code.addClass("enabled-copycode");
 
