@@ -7,6 +7,7 @@ https://www.dokuwiki.org/plugin:copycode
 
 ### 2023-09-21
 - Fix : added code to prevent copy after scrolling the code block.
+- New feature : added a list of cursor in configuration panel to choose the hover cursor on code blocks.
   
 ### 2023-05-28
 - Fix : copycode plugin now work under the .dokuwiki class instead of the mainpage id.
