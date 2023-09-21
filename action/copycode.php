@@ -24,7 +24,8 @@ class action_plugin_copycode_copycode extends DokuWiki_Action_Plugin
     public function register(Doku_Event_Handler $controller)
     {
         $controller->register_hook('DOKUWIKI_STARTED', 'AFTER', $this, 'pass_settings_js');   
-        $controller->register_hook('TPL_METAHEADER_OUTPUT', 'BEFORE', $this,'hook_copycode_js');   
+        $controller->register_hook('TPL_METAHEADER_OUTPUT', 'BEFORE', $this,'add_cursor_styling'); 
+        $controller->register_hook('TPL_METAHEADER_OUTPUT', 'BEFORE', $this,'hook_copycode_js');     
     }
 
     /**
@@ -70,6 +71,16 @@ class action_plugin_copycode_copycode extends DokuWiki_Action_Plugin
 			'EnableForInline' => $this->getConf('enable_for_inline', 0)
 		];
 	}
+
+    /**
+     * adds cursor styling
+     *
+     */
+    public function add_cursor_styling()
+    {
+        $cursor = $this->getConf('copycode_hover_cursor');
+        echo '<style>.enabled-copycode { cursor:'. $cursor .'; }</style>';
+    }
 
 }
 
