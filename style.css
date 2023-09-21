@@ -7,10 +7,6 @@
  * Styling of alert box 
  */
 
- .enabled-copycode {
-	 cursor:cell;
- }
-
 .alert-copycode {
     position: fixed;
     display: block;
