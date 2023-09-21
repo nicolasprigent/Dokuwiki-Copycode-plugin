@@ -9,6 +9,15 @@
  */
 
 jQuery(document).ready(function ($) {
+
+  //detects mouseup after scroll
+  var scrolling = false;
+  function preventClickOnScroll () {
+    $(window).mouseup(function(){
+      scrolling = false;
+    });
+  }
+
   //Function to copy the content of an element and send it to clipboard
   function writeToClipboard(elem, mc) {
     inputValue = "";
@@ -92,26 +101,35 @@ jQuery(document).ready(function ($) {
     $(bloc_code[i]).on("contextmenu", function (evt) {
       evt.preventDefault();
     });
-    $(bloc_code[i]).mouseup(function (event) {
-      switch (event.which) {
-        case 1:
-          selected_text = window.getSelection().toString();
 
-          if (selected_text != "") {
-            writeToClipboard(selected_text, 1);
-          } else {
-            writeToClipboard(this, 1);
-          }
-          break;
-        case 2:
-          //console.log("Middle Mouse button");
-          break;
-        case 3:
-          //console.log("Middle Mouse button");
-          writeToClipboard(this, 3);
-          break;
-        default:
-          //console.log("Nothing");
+    // detects scrolling on element 
+    $(bloc_code[i]).scroll(function() {
+      scrolling = true;
+      preventClickOnScroll();
+    });
+    
+    $(bloc_code[i]).mouseup(function (event) {
+      if (!scrolling){
+        switch (event.which) {
+          case 1:
+            selected_text = window.getSelection().toString();
+
+            if (selected_text != "") {
+              writeToClipboard(selected_text, 1);
+            } else {
+              writeToClipboard(this, 1);
+            }
+            break;
+          case 2:
+            //console.log("Middle Mouse button");
+            break;
+          case 3:
+            //console.log("Middle Mouse button");
+            writeToClipboard(this, 3);
+            break;
+          default:
+            //console.log("Nothing");
+        }
       }
     });
 
