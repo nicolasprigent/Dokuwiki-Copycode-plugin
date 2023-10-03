@@ -185,7 +185,9 @@ jQuery(document).ready(function ($) {
   for (i = 0; i < blocs.length; i++) {
     //deactivate context menu on right click
     $(blocs[i]).on("contextmenu", function (evt) {
-      evt.preventDefault();
+      if (window.getSelection().toString() == "") {
+        evt.preventDefault();
+      }
     });
 
     // detects scrolling on element
