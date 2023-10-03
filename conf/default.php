@@ -6,4 +6,5 @@
  */
 
 $conf['enable_for_inline'] = 1;
+$conf['enable_for_selected'] = 1;
 $conf['copycode_hover_cursor'] = 'cell';

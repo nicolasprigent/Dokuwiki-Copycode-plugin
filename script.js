@@ -31,7 +31,6 @@ class SelectionProvider extends SourceCodeProvider {
   }
 }
 
-
 class BlockProvider extends SourceCodeProvider {
 
   constructor(source, inline=false) {
@@ -51,9 +50,39 @@ class BlockProvider extends SourceCodeProvider {
 
 class CopyCodeStrategy {
 
-  constructor(source) {
+  constructor() {
     if (this.constructor === CopyCodeStrategy) {
-      throw new TypeError("Abstract class cannot be instantiated.");
+      throw new TypeError("Abstract class must be subclassed.");
+    }
+  }
+
+  get_message() {
+    throw new TypeError("Not implemented.");
+  }
+
+  copy() {
+    throw new TypeError("Not implemented.");
+  }
+}
+
+
+class DummyCopyStrategy {
+
+  get_message() {
+    return "";
+  }
+
+  copy() {
+    // dummy doens't da anything.
+  }
+}
+
+
+class CopyCodeStrategyBase {
+
+  constructor(source) {
+    if (this.constructor === CopyCodeStrategyBase) {
+      throw new TypeError("Abstract class must be subclassed.");
     }
     this._source = source;
     this._provider = null;
@@ -90,7 +119,7 @@ class CopyCodeStrategy {
 }
 
 
-class CopySelected extends CopyCodeStrategy {
+class CopySelected extends CopyCodeStrategyBase {
 
   constructor(source) {
     super(source);
@@ -101,7 +130,7 @@ class CopySelected extends CopyCodeStrategy {
 }
 
 
-class CopyBlock extends CopyCodeStrategy {
+class CopyBlock extends CopyCodeStrategyBase {
 
   constructor(source) {
     super(source);
@@ -168,7 +197,10 @@ jQuery(document).ready(function ($) {
     $(blocs[i]).mouseup(function (event) {
 
       if (!scrolling){
-        let strategy = new CopySelected(window);
+        let strategy = new DummyCopyStrategy();
+        if (JSINFO.plugins.copycode.EnableForSelected) {
+          strategy = new CopySelected(window);
+        }
         if (window.getSelection().toString() == "") {
           strategy = new CopyBlock(this);
           if (event.which === 3) {
