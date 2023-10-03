@@ -119,11 +119,11 @@ class CopyCodeStrategyBase {
 }
 
 
-class CopySelected extends CopyCodeStrategyBase {
+class CopyHighlighted extends CopyCodeStrategyBase {
 
   constructor(source) {
     super(source);
-    this._message = LANG.plugins.copycode["selectioncopied"];
+    this._message = LANG.plugins.copycode["highlightedcopied"];
     this._alert_class = "orange";
     this._provider = new SelectionProvider(this._source)
   }
@@ -198,8 +198,8 @@ jQuery(document).ready(function ($) {
 
       if (!scrolling){
         let strategy = new DummyCopyStrategy();
-        if (JSINFO.plugins.copycode.EnableForSelected) {
-          strategy = new CopySelected(window);
+        if (JSINFO.plugins.copycode.EnableForHighlighted) {
+          strategy = new CopyHighlighted(window);
         }
         if (window.getSelection().toString() == "") {
           strategy = new CopyBlock(this);
