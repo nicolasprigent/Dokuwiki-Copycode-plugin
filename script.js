@@ -26,10 +26,10 @@ jQuery(document).ready(function ($) {
       inputValue = elem;
       alertText = "selectioncopied";
       alertClass = "orange";
-	    
+
     } else {
       inputValue = elem.textContent;
-	    
+
       if (inputValue) {
         if (mc == 3) {
           inputValue = inputValue.split("_||copycode||_").join(" ");
@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
 
     //replacing problematic white space character that appears for no obvious reason :/
     inputValue = inputValue.split(/\u00A0/).join("");
-	  
+
     if (inputValue != "") {
       //check if clipboard is available in navigator
       if (navigator.clipboard != undefined) {
@@ -102,12 +102,12 @@ jQuery(document).ready(function ($) {
       evt.preventDefault();
     });
 
-    // detects scrolling on element 
+    // detects scrolling on element
     $(bloc_code[i]).scroll(function() {
       scrolling = true;
       preventClickOnScroll();
     });
-    
+
     $(bloc_code[i]).mouseup(function (event) {
       if (!scrolling){
         switch (event.which) {
