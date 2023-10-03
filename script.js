@@ -186,7 +186,9 @@ jQuery(document).ready(function ($) {
     if (JSINFO.plugins.copycode.EnableBlockInline) {
       //deactivate context menu on right click
       $(blocs[i]).on("contextmenu", function (evt) {
-        evt.preventDefault();
+        if (window.getSelection().toString() == "") {
+          evt.preventDefault();
+        }
       });
     }
 
