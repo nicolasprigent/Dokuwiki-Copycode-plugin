@@ -184,7 +184,6 @@ jQuery(document).ready(function ($) {
 
   for (i = 0; i < blocs.length; i++) {
     if (JSINFO.plugins.copycode.EnableBlockInline) {
-      console.log("prevent default");
       //deactivate context menu on right click
       $(blocs[i]).on("contextmenu", function (evt) {
         evt.preventDefault();
