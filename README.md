@@ -5,6 +5,12 @@ https://www.dokuwiki.org/plugin:copycode
 
 ## Change Log
 
+### 2023-11-08 - Thanks to @tvataire for the pull requests
+- Refactoring of the script.js file to make it easier to maintain
+- New feature : added an option to disable inline copy on right-click
+- New feature : added an option to disable auto-copy of highlighted text
+- File cleaning (useless whitespaces and writes to the console, unix file format conversion)
+
 ### 2023-09-21
 - Fix : added code to prevent copy after scrolling the code block.
 - New feature : added a list of cursor in configuration panel to choose the hover cursor on code blocks.
