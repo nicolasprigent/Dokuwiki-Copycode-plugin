@@ -7,4 +7,5 @@
 
 $lang['enable_for_inline'] = 'Kopiëren inschakelen voor inline code-elementen';
 $lang['enable_for_highlighted'] = 'Kopiëren inschakelen voor geselecteerd code-elementen';
+$lang['enable_blockinline'] = 'Kopieer inline met de rechtermuisknop';
 $lang['copycode_hover_cursor'] = 'Zweefcursor';

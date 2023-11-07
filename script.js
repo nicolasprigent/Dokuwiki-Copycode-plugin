@@ -183,12 +183,14 @@ jQuery(document).ready(function ($) {
 
 
   for (i = 0; i < blocs.length; i++) {
-    //deactivate context menu on right click
-    $(blocs[i]).on("contextmenu", function (evt) {
-      if (window.getSelection().toString() == "") {
-        evt.preventDefault();
-      }
-    });
+    if (JSINFO.plugins.copycode.EnableBlockInline) {
+      //deactivate context menu on right click
+      $(blocs[i]).on("contextmenu", function (evt) {
+        if (window.getSelection().toString() == "") {
+          evt.preventDefault();
+        }
+      });
+    }
 
     // detects scrolling on element
     $(blocs[i]).scroll(function() {
@@ -203,10 +205,13 @@ jQuery(document).ready(function ($) {
         if (JSINFO.plugins.copycode.EnableForHighlighted) {
           strategy = new CopyHighlighted(window);
         }
-        if (window.getSelection().toString() == "") {
+        if (window.getSelection().toString() === "") {
           strategy = new CopyBlock(this);
           if (event.which === 3) {
-            strategy = new CopyBlockInline(this);
+            strategy = new DummyCopyStrategy();
+            if (JSINFO.plugins.copycode.EnableBlockInline) {
+              strategy = new CopyBlockInline(this);
+            }
           }
         }
         strategy.copy();

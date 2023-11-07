@@ -69,7 +69,8 @@ class action_plugin_copycode_copycode extends DokuWiki_Action_Plugin
 		}
 		$JSINFO['plugins']['copycode'] = [
 			'EnableForInline' => $this->getConf('enable_for_inline', 0),
-			'EnableForHighlighted' => $this->getConf('enable_for_highlighted', 0)
+			'EnableForHighlighted' => $this->getConf('enable_for_highlighted', 0),
+			'EnableBlockInline' => $this->getConf('enable_blockinline', 0)
 		];
 	}
 
