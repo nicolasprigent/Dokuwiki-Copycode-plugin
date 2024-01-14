@@ -3,6 +3,8 @@
 Simple plugin for dokuwiki that adds a copy functionnality when clicking on a code block.
 https://www.dokuwiki.org/plugin:copycode
 
+This plugin uses the global Navigator.clipboard property. It can only be used on a secured environment : https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
+
 ## Change Log
 
 ### 2023-11-08
