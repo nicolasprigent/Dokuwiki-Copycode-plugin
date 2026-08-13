@@ -7,6 +7,10 @@ This plugin uses the global Navigator.clipboard property. It can only be used on
 
 ## Change Log
 
+
+### 2026-08-13
+- Fix : compatibility issue with new versions "Mort" of Dokuwiki that added a copy button on the code block
+
 ### 2023-11-08
 Thanks to @tvataire (https://github.com/tvataire) for the pull requests
 - Refactoring of the script.js file to make it easier to maintain
