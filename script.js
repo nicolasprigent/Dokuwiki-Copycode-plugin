@@ -39,7 +39,9 @@ class BlockProvider extends SourceCodeProvider {
   }
 
   get_source_code() {
-    let result = this._source.textContent.split("_||copycode||_").join("\n");
+    const cleanedSource = this._source.cloneNode(true);
+    cleanedSource.querySelectorAll("button.code-copy-btn").forEach((button) => button.remove());
+    let result = cleanedSource.textContent.split("_||copycode||_").join("\n");
     if (this._inline) {
       result = result.split("\n").join(" ");
     }
